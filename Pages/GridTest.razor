@@ -1,0 +1,27 @@
+﻿@page "/gridtest"
+@using BlazoServerGridTestrApp9.Components
+@using BlazoServerGridTestrApp9.Data
+@inject EmployeeService empServices
+
+<h3>GridTest</h3>
+
+<p>
+    <button @onclick="@GetData">取得資料</button>
+</p>
+
+<GridView DataSource="employees">
+    <Columns>
+        <GridViewItem ColumnName="員工編號"></GridViewItem>
+        <GridViewItem ColumnName="姓名"></GridViewItem>
+        <GridViewItem ColumnName="職稱"></GridViewItem>
+    </Columns>
+</GridView>
+
+@code {
+    Employee[] employees;
+
+    protected async Task GetData()
+    {
+        employees = await empServices.GetEmployees();
+    }
+}

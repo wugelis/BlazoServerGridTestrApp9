@@ -1,0 +1,29 @@
+﻿@page "/"
+@using BlazoServerGridTestrApp9.Components
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<p>
+    <MyButton ButtonText="@_buttonText" OnClickCallback="@Button_Click"></MyButton>
+</p>
+
+@code {
+
+    int current;
+    string _buttonText = "我是按鈕";
+
+    public void Button_Click()
+    {
+        current++;
+
+        _buttonText = "我是按鈕";
+
+        string buttonText = $"{_buttonText} {current}";
+
+        _buttonText = buttonText;
+    }
+}

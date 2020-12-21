@@ -1,0 +1,22 @@
+﻿@using BlazoServerGridTestrApp9.Data
+
+<table border="1" class="table table-primary">
+    <tr>
+        @ChildContent
+    </tr>
+    @if (employees == null)
+    {
+        <p>No Data</p>
+    }
+    else
+    {
+        @foreach (Employee data in employees)
+        {
+            <tr>
+                <td>@data.ID</td>
+                <td>@data.ChtName</td>
+                <td>@data.Title</td>
+            </tr>
+        }
+    }
+</table>
